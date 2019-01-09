@@ -1,2 +1,1 @@
-# gameboy-emulator
-A gameboy emulator in c++
+[![Build Status](https://travis-ci.org/kigster/cmake-project-template.svg?branch=master)](https://travis-ci.org/kigster/cmake-project-template)
