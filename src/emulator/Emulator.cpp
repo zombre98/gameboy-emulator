@@ -17,8 +17,14 @@ bool gb::Emulator::launch() {
 
 	auto size = fStream.tellg(); // Give the size of the Rom
 	fStream.seekg(0, std::ios::beg);
+	_rom = std::unique_ptr<std::byte>(new std::byte[size]);
 
+	if (!fStream.read(reinterpret_cast<char *>(_rom.get()), size))
+		return false;
+
+	for (auto i = 0; i < size; i++) {
+		std::cout << "[" << i << "] : " << static_cast<int>(_rom.get()[i]) << std::endl;
+	}
 	std::cout << "Rom size " << size << std::endl;
-
 	return true;
 }
