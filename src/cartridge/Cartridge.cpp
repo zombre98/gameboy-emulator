@@ -4,7 +4,7 @@
 
 #include <iostream>
 #include <fstream>
-#include "Logger.hpp"
+#include "common/Logger.hpp"
 #include "Cartridge.hpp"
 
 gb::Cartridge::Cartridge(std::string const &romPath) : _romPath(romPath) {
