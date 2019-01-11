@@ -8,12 +8,12 @@
 #include "Cartridge.hpp"
 
 gb::Cartridge::Cartridge(std::string const &romPath) : _romPath(romPath) {
+	logging::debug << LOG << "Path of the rom is : " << _romPath << std::endl;
 }
 
 bool gb::Cartridge::init() {
 	std::ifstream fStream(_romPath, std::ios::in | std::ios::binary | std::ios::ate);
 
-	logging::debug << LOG << "Path of the rom is : " << _romPath << std::endl;
 	if (!fStream.is_open())
 		return false;
 
