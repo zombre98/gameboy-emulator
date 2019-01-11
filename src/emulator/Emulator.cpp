@@ -10,6 +10,7 @@ gb::Emulator::Emulator(std::string romPath) : _romPath(std::move(romPath)), _car
 }
 
 bool gb::Emulator::launch() {
-	_cart.init();
+	if (!_cart.init())
+		return false;
 	return true;
 }
