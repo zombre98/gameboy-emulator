@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <fstream>
+#include "Logger.hpp"
 #include "Cartridge.hpp"
 
 gb::Cartridge::Cartridge(std::string const &romPath) : _romPath(romPath) {
@@ -12,7 +13,7 @@ gb::Cartridge::Cartridge(std::string const &romPath) : _romPath(romPath) {
 bool gb::Cartridge::init() {
 	std::ifstream fStream(_romPath, std::ios::in | std::ios::binary | std::ios::ate);
 
-	std::cout << "Path of the rom is : " << _romPath << std::endl;
+	logging::debug << LOG << "Path of the rom is : " << _romPath << std::endl;
 	if (!fStream.is_open())
 		return false;
 
@@ -23,6 +24,6 @@ bool gb::Cartridge::init() {
 	if (!fStream.read(reinterpret_cast<char *>(_cart.get()), size))
 		return false;
 
-	std::cout << "Rom size " << size << std::endl;
+	logging::debug << LOG << "Rom size " << size << std::endl;
 	return true;
 }

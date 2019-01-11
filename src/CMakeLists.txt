@@ -7,9 +7,11 @@ set(SOURCE_FILES main.cpp
         emulator/Emulator.cpp
         emulator/Emulator.hpp
         cartridge/Cartridge.cpp
-        cartridge/Cartridge.hpp)
+        cartridge/Cartridge.hpp
+        common/Logger.hpp)
 
 add_executable(emulator ${SOURCE_FILES} ${COMMON})
 install(TARGETS emulator DESTINATION ${EMULATOR_INSTALL_BIN_DIR})
 
 target_include_directories(${TARGET_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/src/cartridge)
+target_include_directories(${TARGET_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/src/common)
