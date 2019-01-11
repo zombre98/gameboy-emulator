@@ -4,7 +4,7 @@
 
 #include <iostream>
 #include <fstream>
-#include "Cartridge.hpp"
+#include "cartridge/Cartridge.hpp"
 
 gb::Cartridge::Cartridge(std::string const &romPath) : _romPath(romPath) {
 }
@@ -13,7 +13,7 @@ bool gb::Cartridge::init() {
 	std::ifstream fStream(_romPath, std::ios::in | std::ios::binary | std::ios::ate);
 
 	std::cout << "Path of the rom is : " << _romPath << std::endl;
-	if (!fStream.is_open())
+	if (!fStream)
 		return false;
 
 	auto size = fStream.tellg(); // Give the size of the Rom
