@@ -6,6 +6,7 @@
 
 #include <string>
 #include <vector>
+#include "Cartridge.hpp"
 
 namespace gb {
 	class Emulator {
@@ -17,8 +18,7 @@ namespace gb {
 		bool launch();
 
 	private:
-		constexpr static std::size_t MEMORY_SIZE = 8000;
 		std::string _romPath;
-		std::unique_ptr<std::byte> _rom;
+		Cartridge _cart;
 	};
 }
