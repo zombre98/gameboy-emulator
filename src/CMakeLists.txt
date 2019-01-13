@@ -13,3 +13,4 @@ add_executable(emulator ${SOURCE_FILES} ${COMMON})
 install(TARGETS emulator DESTINATION ${EMULATOR_INSTALL_BIN_DIR})
 
 target_include_directories(${TARGET_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/src)
+#target_link_libraries(${TARGET_NAME} PRIVATE c++fs)

@@ -4,25 +4,21 @@
 
 #include <iostream>
 #include <fstream>
+#include <filesystem>
 #include "cartridge/Cartridge.hpp"
 
 gb::Cartridge::Cartridge(std::string const &romPath) : _romPath(romPath) {
 }
 
 bool gb::Cartridge::init() {
-	std::ifstream fStream(_romPath, std::ios::in | std::ios::binary | std::ios::ate);
+	std::ifstream fStream(_romPath, std::ios::binary);
 
 	std::cout << "Path of the rom is : " << _romPath << std::endl;
 	if (!fStream)
 		return false;
 
-	auto size = fStream.tellg(); // Give the size of the Rom
-	fStream.seekg(0, std::ios::beg);
-	_cart = std::unique_ptr<std::byte>(new std::byte[size]);
+	_cart = std::vector<char>(std::istreambuf_iterator<char>(fStream), std::istreambuf_iterator<char>());
 
-	if (!fStream.read(reinterpret_cast<char *>(_cart.get()), size))
-		return false;
-
-	std::cout << "Rom size " << size << std::endl;
+	std::cout << "Rom size " << _cart.size() << std::endl;
 	return true;
 }

@@ -5,17 +5,18 @@
 #pragma once
 
 #include <string>
+#include <vector>
 
 namespace gb {
-		class Cartridge {
-		public:
-			Cartridge(std::string const &romPath);
-			~Cartridge() = default;
+	class Cartridge {
+	public:
+		Cartridge(std::string const &romPath);
+		~Cartridge() = default;
 
-			bool init();
+		bool init();
 
-		private:
-			std::string const &_romPath;
-			std::unique_ptr<std::byte> _cart;
-		};
+	private:
+		std::string const &_romPath;
+		std::vector<char> _cart;
+	};
 }
