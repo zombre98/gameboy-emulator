@@ -3,11 +3,7 @@ project(emulator)
 
 set(TARGET_NAME emulator)
 
-set(SOURCE_FILES main.cpp
-        emulator/Emulator.cpp
-        emulator/Emulator.hpp
-        cartridge/Cartridge.cpp
-        cartridge/Cartridge.hpp)
+include(CMakeSources.cmake)
 
 add_executable(${TARGET_NAME} ${SOURCE_FILES} ${COMMON})
 install(TARGETS ${TARGET_NAME} DESTINATION ${EMULATOR_INSTALL_BIN_DIR})
