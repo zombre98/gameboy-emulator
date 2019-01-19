@@ -1,6 +1,7 @@
 #include <iostream>
 #include "emulator/Emulator.hpp"
 
+
 int main(int ac, const char *av[]) {
 	if (ac != 2) {
 		std::cerr << av[0] << " romPath" << std::endl;

@@ -6,7 +6,7 @@
 
 #include <string>
 #include <vector>
-#include "Cartridge.hpp"
+#include "cartridge/Cartridge.hpp"
 
 namespace gb {
 	class Emulator {
