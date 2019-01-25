@@ -10,7 +10,8 @@
 namespace gb {
 	class Cartridge {
 	public:
-		Cartridge(std::string const &romPath);
+        explicit Cartridge(std::string const &romPath);
+
 		~Cartridge() = default;
 
 		bool init();

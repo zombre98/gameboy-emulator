@@ -10,5 +10,6 @@ gb::Emulator::Emulator(std::string romPath) : _romPath(std::move(romPath)), _car
 bool gb::Emulator::launch() {
 	if (!_cart.init())
 		return false;
+	cpu.test();
 	return true;
 }
