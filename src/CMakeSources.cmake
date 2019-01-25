@@ -3,12 +3,12 @@ set(COMMON
         ${CMAKE_SOURCE_DIR}/src/common/Logger.hpp)
 
 set(EMULATOR
-        emulator/Emulator.hpp
-        emulator/Emulator.cpp)
+        emulator/Emulator.cpp
+        emulator/Emulator.hpp)
 
 set(CARTRIDGE
-        cartridge/Cartridge.hpp
-        cartridge/Cartridge.cpp)
+        cartridge/Cartridge.cpp
+        cartridge/Cartridge.hpp)
 
 set(SOURCES
         ${COMMON}

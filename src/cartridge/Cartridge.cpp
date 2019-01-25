@@ -5,7 +5,8 @@
 #include <iostream>
 #include <fstream>
 #include <filesystem>
-#include "cartridge/Cartridge.hpp"
+#include "common/Logger.hpp"
+#include "Cartridge.hpp"
 
 gb::Cartridge::Cartridge(std::string const &romPath) : _romPath(romPath) {
 }
@@ -13,12 +14,12 @@ gb::Cartridge::Cartridge(std::string const &romPath) : _romPath(romPath) {
 bool gb::Cartridge::init() {
 	std::ifstream fStream(_romPath, std::ios::binary);
 
-	logging::debug << LOG << "Path of the rom is : " << _romPath << std::endl;
+	logging::debug << "Path of the rom is : " << _romPath << std::endl;
 	if (!fStream)
 		return false;
 
 	_cart = std::vector<char>(std::istreambuf_iterator<char>(fStream), std::istreambuf_iterator<char>());
 
-	logging::debug << LOG << "Rom size " << size << std::endl;
+	logging::debug << "Cartridge size : " << _cart.size() << std::endl;
 	return true;
 }

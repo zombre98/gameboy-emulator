@@ -5,7 +5,7 @@ set(TARGET_NAME emulator)
 
 include(CMakeSources.cmake)
 
-add_executable(${TARGET_NAME} ${SOURCE_FILES} ${COMMON})
+add_executable(${TARGET_NAME} ${SOURCES} ${COMMON})
 install(TARGETS ${TARGET_NAME} DESTINATION ${EMULATOR_INSTALL_BIN_DIR})
 
 target_include_directories(${TARGET_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/src)
