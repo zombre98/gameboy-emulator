@@ -10,7 +10,12 @@ set(CARTRIDGE
         cartridge/Cartridge.cpp
         cartridge/Cartridge.hpp)
 
+set(CPU
+        CPU/Cpu.cpp
+        CPU/Cpu.hpp)
+
 set(SOURCES
         ${COMMON}
+        ${CPU}
         ${EMULATOR}
         ${CARTRIDGE})

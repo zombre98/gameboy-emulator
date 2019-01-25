@@ -6,6 +6,7 @@
 
 #include <string>
 #include <vector>
+#include "CPU/Cpu.hpp"
 #include "cartridge/Cartridge.hpp"
 
 namespace gb {
@@ -18,6 +19,7 @@ namespace gb {
 		bool launch();
 
 	private:
+		Cpu cpu;
 		std::string _romPath;
 		Cartridge _cart;
 	};
